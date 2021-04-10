@@ -11,7 +11,7 @@ public class UserRegistrationController {
   private UserService userService;
 
   public UserRegistrationController(UserService userService) {
-    super();
+    //super();
     this.userService = userService;
   }
 
@@ -23,7 +23,7 @@ public class UserRegistrationController {
   @PostMapping
   public String registerUserAccount(@ModelAttribute("user") UserRegistrationDto registrationOto) {
     userService.save(registrationOto);
-    return "redirect:/reqistration?success";
+    return "redirect:/registration?success";
   }
 
   @ModelAttribute("user")
