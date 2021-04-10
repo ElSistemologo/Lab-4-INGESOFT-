@@ -6,16 +6,33 @@ public class UserRegistrationDto {
     private String email;
     private String password;
 
-    public UserRegistrationDto(String firstName, String lastName, String email, String password){
+    public UserRegistrationDto() {
+    }
+
+    public UserRegistrationDto(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
     }
 
-    public String getFirstName() { return firstName; }
-    public String getlastName() { return lastName; }
-    public String getEmail() { return email; }
-    public String getPassword() { return password; }
-    public void setFirstName(String firstName){this.firstName = firstName; }
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getlastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 }

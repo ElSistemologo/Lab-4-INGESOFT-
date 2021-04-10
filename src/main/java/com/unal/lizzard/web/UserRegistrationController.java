@@ -1,13 +1,17 @@
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+package com.unal.lizzard.web;
+
+import com.unal.lizzard.service.UserService;
+import com.unal.lizzard.web.dto.UserRegistrationDto;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/registration")
-public class USerRegistrationController {
+public class UserRegistrationController {
   private UserService userService;
 
   public UserRegistrationController(UserService userService) {
-    //super();
+    super();
     this.userService = userService;
   }
 
@@ -17,7 +21,7 @@ public class USerRegistrationController {
   }
 
   @PostMapping
-  public String registerUserAccount(@NodelAttribute("user") UserRegistrationOto registrationOto) {
+  public String registerUserAccount(@ModelAttribute("user") UserRegistrationDto registrationOto) {
     userService.save(registrationOto);
     return "redirect:/reqistration?success";
   }
