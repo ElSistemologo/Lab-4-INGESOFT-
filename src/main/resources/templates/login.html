@@ -1,0 +1,63 @@
+<!-- Login form -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1>Inicio de sesion</h1>
+      <form th:action="@{/login}" method="post">
+        <!-- Error msg -->
+        <div th:if="${param.error}">
+          <div class="alert alert-danger">
+            Usuario y/o contraseña incorrecta
+          </div>
+        </div>
+        <!-- logout msg -->
+        <div th:if="${param.logout}">
+          <div class="alert alert-info">Has finalizado la sesión</div>
+        </div>
+        <!-- Username/mail input -->
+        <div class="form-group">
+          <label for="username">Usuario</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            name="username"
+            placeholder="Ingrese el correo electrónico"
+            autofocus
+          />
+        </div>
+        <!-- Password input -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Ingrese la contraseña"
+          />
+        </div>
+        <!-- Submit -->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <input
+                type="submit"
+                name="login-submit"
+                id="login-submit"
+                class="form-control btn btn-primary"
+                value="Ingresar"
+              />
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="form-group">
+        <span
+          >Usuario nuevo?
+          <a href="/" th:href="@{/registration}">Registrarse aquí</a></span
+        >
+      </div>
+    </div>
+  </div>
+</div>
