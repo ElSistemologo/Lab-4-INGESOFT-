@@ -1,7 +1,7 @@
 package com.unal.lizzard.model;
+
 import javax.persistence.*;
 import java.util.Collection;
-
 
 @Entity
 @Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
@@ -21,14 +21,15 @@ public class User {
 
     @Column(name = "password")
     private String password;
-    @ManyToMany(fetch = FetchType.EAGER , cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
-    )
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
 
+    /* Empty constructor */
+    public User() {
+    }
+
+    /* constructor */
     public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
         super();
         this.firstName = firstName;
@@ -86,5 +87,3 @@ public class User {
         this.roles = roles;
     }
 }
-
-
