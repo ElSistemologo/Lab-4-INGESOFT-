@@ -1,63 +1,94 @@
-<!-- Login form -->
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <h1>Inicio de sesion</h1>
-      <form th:action="@{/login}" method="post">
-        <!-- Error msg -->
-        <div th:if="${param.error}">
-          <div class="alert alert-danger">
-            Usuario y/o contraseña incorrecta
-          </div>
-        </div>
-        <!-- logout msg -->
-        <div th:if="${param.logout}">
-          <div class="alert alert-info">Has finalizado la sesión</div>
-        </div>
-        <!-- Username/mail input -->
-        <div class="form-group">
-          <label for="username">Usuario</label>
-          <input
-            type="text"
-            class="form-control"
-            id="username"
-            name="username"
-            placeholder="Ingrese el correo electrónico"
-            autofocus
-          />
-        </div>
-        <!-- Password input -->
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="password"
-            name="password"
-            placeholder="Ingrese la contraseña"
-          />
-        </div>
-        <!-- Submit -->
-        <div class="form-group">
-          <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns=" http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Registro de usuario</title>
+    <!-- Bootstrap css 3.3.7 -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- Login form -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h1>Inicio de sesion</h1>
+          <form th:action="@{/login}" method="post">
+            <!-- Error msg -->
+            <div th:if="${param.error}">
+              <div class="alert alert-danger">
+                Usuario y/o contraseña incorrecta
+              </div>
+            </div>
+            <!-- logout msg -->
+            <div th:if="${param.logout}">
+              <div class="alert alert-info">Has finalizado la sesión</div>
+            </div>
+            <!-- Username/mail input -->
+            <div class="form-group">
+              <label for="username">Usuario</label>
               <input
-                type="submit"
-                name="login-submit"
-                id="login-submit"
-                class="form-control btn btn-primary"
-                value="Ingresar"
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                placeholder="Ingrese el correo electrónico"
+                autofocus
               />
             </div>
+            <!-- Password input -->
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Ingrese la contraseña"
+              />
+            </div>
+            <!-- Submit -->
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                  <input
+                    type="submit"
+                    name="login-submit"
+                    id="login-submit"
+                    class="form-control btn btn-primary"
+                    value="Ingresar"
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="form-group">
+            <span
+              >Usuario nuevo?
+              <a href="/" th:href="@{/registration}">Registrarse aquí</a></span
+            >
           </div>
         </div>
-      </form>
-      <div class="form-group">
-        <span
-          >Usuario nuevo?
-          <a href="/" th:href="@{/registration}">Registrarse aquí</a></span
-        >
       </div>
     </div>
-  </div>
-</div>
+    <!-- Bootstrap js -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
